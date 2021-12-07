@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
     # rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    #before_action to authenticate/authorize a user is logged in
 
     def index 
         books = Book.all

@@ -6,10 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Checkout.destroy
+# Book.destroy
+# User.destroy
 
 
 20.times do
     Book.create!(title: Faker::Book.title, author: Faker::Book.author, genre: Faker::Book.genre, description: Faker::Quote.yoda)
 end
+
+# 20.times do
+
+# end
 
 puts "done seeding"
