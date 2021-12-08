@@ -27,8 +27,8 @@ const BookProfile = () => {
             <form >
                 <h1>{book.title}</h1>
                 <h2>{book.author}</h2>
-                <p>{book.description}</p>
-                <p>{book.genre}</p>
+                <p>Description: {book.description}</p>
+                <p>Genre: {book.genre}</p>
                 <button>Checkout</button>
                 <br/>
             </form>
