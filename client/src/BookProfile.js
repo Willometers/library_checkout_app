@@ -2,12 +2,13 @@ import React from "react"
 import { useEffect } from "react"
 import { useState } from "react"
 import { useParams } from "react-router"
-
 import HomeButton from "./HomeButton"
+import CheckoutButton from "./CheckoutButton"
 
 const BookProfile = () => {
     const { id } = useParams()
     const [ book, setBook ] = useState([])
+    // const user_id = sessions[user_id]
     // const history = useHistory()
 
     useEffect(() => {
@@ -15,24 +16,18 @@ const BookProfile = () => {
         .then(res => res.json())
         .then(setBook)
     }, [])
-
-    // const handleHome = (e) => {
-    //     e.preventDefault()
-    //     history.push(``)
-    // }
-
+    
     return (
         <div>
             < HomeButton/>
-            <form >
+            <div >
                 <h1>{book.title}</h1>
                 <h2>{book.author}</h2>
                 <p>Description: {book.description}</p>
                 <p>Genre: {book.genre}</p>
-                <button>Checkout</button>
+            < CheckoutButton />
                 <br/>
-            </form>
-
+            </div>
         </div>
     )
 }

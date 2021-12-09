@@ -1,47 +1,44 @@
 import React from "react";
-import HomeButton from "./HomeButton";
+import {useHistory} from 'react-router-dom'
+import { useState } from 'react'
 // interfaces with sessions#create
 
-const Login = () => {
+function Login({  }) {
+    const history = useHistory()
+    const [username, setUsername] = useState("");
 
     function handleSubmit(e) {
-        e.preventDefault()
-        console.log("Submitted")
-        let email = e.target[0].value
-        let password = e.target[1].value
-        fetch("/users", {
+        e.preventDefault();
+        fetch("/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ 
-              email, 
-              password 
-            }),
-        }).then((r) => {
-            console.log(r)
-            // invoke sessions#create with user_id
-        });
-      }
-      
+          body: JSON.stringify({ username }),
+        })
+            .then((r) => r.json())
+            .then(history.push('/books'))
+
+            // if(username) {
+            //     .then(history.push('/books'))
+            // else
+            //     .then(error)
+            // }
+        };
+
     return (
         <div>
-            <HomeButton/>
-            <form onSubmit={handleSubmit}>
-                <h3>Log In</h3>
-                <div className="form-group">
-                <label>Username</label>
-                <input type="email" 
-                className="form-control" 
-                placeholder="Enter username" />
-                </div>
-                <div className="form-group">
-                <label>Password</label>
-                <input type="password" 
-                className="form-control" 
-                placeholder="Enter password" />
-                </div>
-                <button variant="primary" >Log in</button>
+             <h3>Log In</h3>  
+             <form onSubmit={handleSubmit}>         
+            <input
+                placeholder="username"
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+            />
+            <br/>
+                <button variant="primary">Log in</button>
             </form>
         </div>
     );

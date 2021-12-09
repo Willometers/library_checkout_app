@@ -10,18 +10,10 @@ Checkout.destroy_all
 Book.destroy_all
 User.destroy_all
 
-
 20.times do
     Book.create!(title: Faker::Book.title, author: Faker::Book.author, genre: Faker::Book.genre, description: Faker::Quote.yoda)
 end
 
-20.times do
-    User.create!(first_name: Faker::Name.first_name, password: Faker::Name.last_name)
-end
-
-20.times do
-    Checkout.create!(book_id: Book.ids.sample, user_id: User.ids.sample, due_date: Faker::Date.forward(days: 14) )
-end
+User.create!(username: "Barry")
 
 puts "done seeding"
-

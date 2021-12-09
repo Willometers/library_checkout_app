@@ -18,12 +18,12 @@ class CheckoutsController < ApplicationController
         else
             render json { error: "Checkout not found", status: not_found }
     end
+    
 
     private
 
     def checkout_params
         params.permit(:user_id, :book_id)
     end
-
     
 end

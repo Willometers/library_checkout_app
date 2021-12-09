@@ -15,9 +15,9 @@ function App() {
   
       <Switch>
 
-        <Route exact path="/"><HomePage/></Route>
+        <Route exact path="/"><Login/></Route>
         <Route exact path="/login"><Login/></Route>
-        <Route exact path="/signup"><SignUp/></Route>
+        {/* <Route exact path="/signup"><SignUp/></Route> */}
         <Route exact path="/books"><BooksList/></Route>
         <Route exact path="/books/:id"><BookProfile/></Route>
 
