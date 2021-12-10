@@ -1,4 +1,5 @@
 class CheckoutsController < ApplicationController
+rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def index 
         checkouts = Checkout.all
@@ -11,19 +12,18 @@ class CheckoutsController < ApplicationController
     end
 
     def destroy 
-        checkout = Checkout.find_by(id: params[:id])
-        if checkout
-            checkout.destroy
-            head :no_content
-        else
-            render json { error: "Checkout not found", status: not_found }
+        Checkout.all.destroy_all
     end
-    
 
     private
 
     def checkout_params
         params.permit(:user_id, :book_id)
     end
+
+    def render_unprocessable_entity_response(invalid)
+        render json: { errors: invalid.record.errors.fullmessage }, 
+        status: unprocessable_entity
+    end 
     
 end

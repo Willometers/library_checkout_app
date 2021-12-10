@@ -1,22 +1,33 @@
 import React from "react"
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
+import { useState } from "react"
+import { useParams } from "react-router"
+import { useEffect } from "react"
 
 const CheckoutButton = () => {
+    const { id } = useParams()
+    const [ user, setUser ] = useState([])
 
+    useEffect(() => {
+        fetch(`http://localhost:3000/users`)
+        .then(res => res.json())
+        .then(setUser)
+        .then(console.log(user))
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log("checked out")
-        // fetch create checkout with sessions[:user_id] and :book_id
-        // fetch("/checkouts", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body:JSON.stringify()
-        // })
-        // .then((r) => r.json())
-        // .then(console.log())
+        const reader = user[0].id
+        fetch("/checkouts/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify({user_id: reader, book_id: id})
+        })
+        .then((r) => r.json())
+        .then(console.log({user_id: reader, book_id: id}))
     }
 
     return (
