@@ -25,8 +25,7 @@ const BookProfile = () => {
                 <p>Description: {book.description}</p>
                 <p>Genre: {book.genre}</p>
             < CheckoutButton />
-                <br/>
-            {/* <ReturnButton /> */}                   
+                <br/>                  
             </div>
         </div>
     )                   

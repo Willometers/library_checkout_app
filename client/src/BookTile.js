@@ -6,12 +6,10 @@ const BookTile = ( { book } ) => {
     function handleSubmit(e) {
         e.preventDefault()
         history.push(`/books/${book.id}`)
-        // fetch this book.id POST to checkout
-        // add sessions to associate user to checkout
     }
 
     return (
-        <div>
+        <div >
         <form onSubmit={handleSubmit}>
             <h1>{book.title}</h1>
             <h2>{book.author}</h2>

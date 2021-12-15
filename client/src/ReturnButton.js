@@ -1,21 +1,20 @@
 import React from "react"
-// import { useState } from "react"
 
-const ReturnButton = ({}) => {
-    // const [ data, setData ] = useState([])
+const ReturnButton = () => {
 
     const handleSubmit = (e) => {
-        // e.preventDefault()
+        // debugger 
+        // e.preventDefualt()
         console.log()
-        fetch(`http://localhost:3000/checkouts`, {
+        fetch(`http://localhost:3000/checkouts/`, {
             method: 'DELETE'
         })
     }
 
     return (
-        <div>
+        <div >
             <form onSubmit={handleSubmit}>
-                <button>Return Books</button>
+                <button >Return Books</button>
             </form>
         </div>
     )

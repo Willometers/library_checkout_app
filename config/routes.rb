@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :checkouts
   resources :users
   resources :sessions
+  delete "/logout", to: "sessions#destroy" 
   post '/login', to: 'sessions#create'
-  get "users/me", to: "users#show"
+  post "signup", to: "users#create"
   delete "/checkouts", to: "checkouts#destroy"
 
   # Routing logic: fallback requests for React Router.

@@ -10,10 +10,11 @@ Checkout.destroy_all
 Book.destroy_all
 User.destroy_all
 
+
 20.times do
     Book.create!(title: Faker::Book.title, author: Faker::Book.author, genre: Faker::Book.genre, description: Faker::Quote.yoda)
 end
 
-User.create!(username: "Barry")
+# User.create!(username: "Barry")
 
 puts "done seeding"

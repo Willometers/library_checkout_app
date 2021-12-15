@@ -27,11 +27,10 @@ const MyBooks = () => {
             <h1>My Books:</h1>    
             <ul>
                {data[0].books.map((book) => (
-                   <li key={book.id}>{book.title}</li>
+                   <li value={book.id}>{book.title}</li>
                ))}
-               <ReturnButton />
             </ul>
-           
+            <ReturnButton /> 
         </div>
     )
 }

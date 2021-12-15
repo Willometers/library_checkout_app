@@ -13,7 +13,7 @@ const BooksList = () => {
         .then(res => res.json())
         .then(setBooks)
     }, [])
-    
+
     return (
         <div>
             <HomeButton/>
@@ -21,7 +21,9 @@ const BooksList = () => {
             <h1>Books:</h1>
             <ul>
                 {books.map(book => 
-                    <BookTile book={book}/>)}
+                <li key={book.id}>
+                    <BookTile book={book}/>
+                </li>)}
             </ul>
         </div>
     );

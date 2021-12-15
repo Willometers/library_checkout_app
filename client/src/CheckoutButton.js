@@ -1,5 +1,4 @@
 import React from "react"
-// import { useHistory } from 'react-router-dom'
 import { useState } from "react"
 import { useParams } from "react-router"
 import { useEffect } from "react"
@@ -12,7 +11,6 @@ const CheckoutButton = () => {
         fetch(`http://localhost:3000/users`)
         .then(res => res.json())
         .then(setUser)
-        .then(console.log(user))
     }, [])
 
     const handleSubmit = (e) => {

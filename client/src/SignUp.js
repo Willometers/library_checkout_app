@@ -1,35 +1,38 @@
-import React, { useState } from "react";
-import HomeButton from "./HomeButton";
+import React from "react";
+import {useHistory} from 'react-router-dom'
+import { useState } from 'react'
 
-function SignUp({setUser}) {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+function SignUp() {
+    const history = useHistory()
+    const [username, setUsername] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault()
-        const username = e.target[0].value
-        const password = e.target[1].value
-            console.log(username, password)
-            // invoke users#create
-            
+        console.log(username)
+        e.preventDefault();
+        console.log(e.target.value)
+        fetch("http://localhost:3000/signup", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username }),
+          })
+          .then(history.push('/books'))
     }
 
     return (
         <div>
-            <HomeButton/>
             <form onSubmit={handleSubmit}>
                 <h3>Sign up</h3>
-                <div className="form-group">
-                    <label>Username</label>
-                    <input type="email" 
-                    className="form-control" 
-                    placeholder="Enter username" />
-                </div>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" 
-                    className="form-control" 
-                    placeholder="Enter password" />
+                <div>
+                    <input
+                    placeholder="username"
+                    type="text"
+                    id="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    />
                 </div>
                 <button variant="primary" >Sign up</button>
             </form>

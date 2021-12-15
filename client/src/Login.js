@@ -3,28 +3,33 @@ import {useHistory} from 'react-router-dom'
 import { useState } from 'react'
 // interfaces with sessions#create
 
-function Login({  }) {
+function Login() {
     const history = useHistory()
     const [username, setUsername] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault();
-        fetch("/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ username }),
-        })
-            .then((r) => r.json())
-            .then(history.push('/books'))
+        console.log(e.target.value)
+        fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username }),
+          })
 
-            // if(username) {
-            //     .then(history.push('/books'))
-            // else
-            //     .then(error)
-            // }
-        };
+            .then((r) => r.json())
+            .then((user) => { 
+                if (!user.error) {
+                    sessionStorage.setItem("loggedIn", true)
+                    history.push('/books')
+                    }
+                else {
+                    history.push('/signup')
+                    }
+                })
+            }
+
                
     return (
         <div>

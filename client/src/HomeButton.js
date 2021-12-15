@@ -4,8 +4,14 @@ import { useHistory } from 'react-router-dom'
 const HomeButton = () => {
     const history = useHistory()
     const handleHome = (e) => {
-        e.preventDefault()
-        history.push(``)
+        // e.preventDefault()
+        fetch(`http://localhost:3000/logout`, {
+            method: 'DELETE'
+        })
+        .then(() => {
+            sessionStorage.clear()
+            history.push(``)
+        })
     }
 
     return (
@@ -15,7 +21,6 @@ const HomeButton = () => {
             </form>
         </div>
     )
-
 }
 
 export default HomeButton

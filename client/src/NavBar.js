@@ -1,21 +1,26 @@
 import React from "react";
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom'
+import { useState } from 'react'
 
-const NavBar = () => {
+function NavBar() {
+    const history = useHistory()
+    
+    useEffect(() => {
+        const loggedIn = sessionStorage.getItem("loggedIn")
 
-    return (
+        if (!loggedIn) {
+          console.log("no session")
+          history.push('/login')
+          }
+      })
+
+      return (
         <div>
-            {/* <li>
-                <Link to="/signup">Signup</Link>
-            </li> */}
-            <li>
-                <Link to="/login">Login</Link>
-            </li>
-            <li>
-                <Link to="/books">Books</Link>
-            </li>
+            {/* <Link to="/signup">Signup</Link> */}
         </div>
-    )
+      )
 }
 
 export default NavBar

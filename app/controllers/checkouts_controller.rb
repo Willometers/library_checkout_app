@@ -7,7 +7,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
     end
 
     def create 
-        checkout = Checkout.create(checkout_params)
+        checkout = Checkout.create!(checkout_params)
         render json: checkout
     end
 
@@ -27,3 +27,4 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
     end 
     
 end
+
