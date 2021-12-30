@@ -11,6 +11,7 @@ const HomeButton = () => {
         .then(() => {
             sessionStorage.clear()
             history.push(``)
+            console.log('session deleted')
         })
     }
 

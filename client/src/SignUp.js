@@ -24,6 +24,7 @@ function SignUp() {
     return (
         <div>
             <form onSubmit={handleSubmit}>
+                <h5 style={{color:'red'}}>User Not Found</h5>
                 <h3>Sign up</h3>
                 <div>
                     <input

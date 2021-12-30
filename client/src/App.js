@@ -13,7 +13,6 @@ function App() {
     <Router>
      <div>
       <h1>Library</h1>
-      
       <Switch>
         <Route exact path="/signup"><SignUp/></Route>
         <Route exact path="/login"><Login/></Route>

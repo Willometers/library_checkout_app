@@ -27,7 +27,7 @@ const MyBooks = () => {
             <h1>My Books:</h1>    
             <ul>
                {data[0].books.map((book) => (
-                   <li value={book.id}>{book.title}</li>
+                   <li key={book.id.toString()}>"{book.title}"</li>
                ))}
             </ul>
             <ReturnButton /> 

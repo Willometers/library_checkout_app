@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+    before_action :authorize
+    skip_before_action :authorize
     # rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     #before_action to authenticate/authorize a user is logged in
     
@@ -14,6 +16,13 @@ class BooksController < ApplicationController
 
     def create 
         book = Book.create(book_params)
+        render json: book
+    end
+
+    def fanfictionify
+        book = Book.find_by(id: params[:id])
+        book.description = "The protagonist and Sonic have a chance meeting in a coffee shop"
+        book.save
         render json: book
     end
 

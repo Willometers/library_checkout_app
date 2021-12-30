@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useParams } from "react-router"
 import CheckoutButton from "./CheckoutButton"
 import BackButton from "./BackButton"
+import UpdateButton from "./UpdateButton"
 // import ReturnButton from "./ReturnButton"
 
 const BookProfile = () => {
@@ -13,7 +14,7 @@ const BookProfile = () => {
     useEffect(() => {
         fetch(`http://localhost:3000/books/${id}`)
         .then(res => res.json())
-        .then(setBook)
+        .then(setBook) 
     }, [])
 
     return (
@@ -25,6 +26,7 @@ const BookProfile = () => {
                 <p>Description: {book.description}</p>
                 <p>Genre: {book.genre}</p>
             < CheckoutButton />
+            < UpdateButton />
                 <br/>                  
             </div>
         </div>

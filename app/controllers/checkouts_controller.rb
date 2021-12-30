@@ -1,5 +1,7 @@
 class CheckoutsController < ApplicationController
-rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    before_action :authorize
+    skip_before_action :authorize
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def index 
         checkouts = Checkout.all

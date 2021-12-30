@@ -15,6 +15,6 @@ User.destroy_all
     Book.create!(title: Faker::Book.title, author: Faker::Book.author, genre: Faker::Book.genre, description: Faker::Quote.yoda)
 end
 
-# User.create!(username: "Barry")
+User.create!(username: "Barry")
 
 puts "done seeding"

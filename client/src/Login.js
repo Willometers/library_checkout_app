@@ -17,12 +17,12 @@ function Login() {
             },
             body: JSON.stringify({ username }),
           })
-
             .then((r) => r.json())
             .then((user) => { 
                 if (!user.error) {
                     sessionStorage.setItem("loggedIn", true)
                     history.push('/books')
+                    console.log(user.id)
                     }
                 else {
                     history.push('/signup')

@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
-    # validation?
 
-    def show 
-        render json: user, include: :books
+    def show
+      user = User.find_by(id: session[:user_id])
+      if user
+        render json: user, status: :created
+      else
+        render json: { error: "Not authorized" }, status: :unauthorized
+      end
     end
 
     def index 
@@ -26,8 +30,8 @@ class UsersController < ApplicationController
         params.permit(:username)
     end
 
-    def user
-      @user = User.find_by(id: params[:id])
-    end
+    # def user
+    #   @user = User.find_by(id: params[:id])
+    # end
 
 end

@@ -11,7 +11,7 @@ const BookTile = ( { book } ) => {
     return (
         <div >
         <form onSubmit={handleSubmit}>
-            <h1>{book.title}</h1>
+            <h1>"{book.title}"</h1>
             <h2>{book.author}</h2>
             <button>Info</button>
             <br/>
