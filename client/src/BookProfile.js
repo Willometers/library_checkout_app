@@ -12,6 +12,7 @@ const BookProfile = () => {
     const [ book, setBook ] = useState([])
 
     useEffect(() => {
+        // fetching from rails server seeded with books
         fetch(`http://localhost:3000/books/${id}`)
         .then(res => res.json())
         .then(setBook) 
