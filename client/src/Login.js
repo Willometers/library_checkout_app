@@ -22,7 +22,7 @@ function Login() {
                 if (!user.error) {
                     sessionStorage.setItem("loggedIn", true)
                     history.push('/books')
-                    console.log(user.id)
+                    console.log("user",user.id)
                     }
                 else {
                     history.push('/signup')

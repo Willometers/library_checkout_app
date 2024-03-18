@@ -11,13 +11,13 @@ function NavBar() {
         const loggedIn = sessionStorage.getItem("loggedIn")
         if (!loggedIn) {
           console.log(sessionStorage)
-          console.log(loggedIn)
+          console.log("not logged in", loggedIn)
           history.push('/login')
           }
         else
           history.push('/books')
-          console.log(loggedIn)
-          console.log(sessionStorage)
+          console.log("li", loggedIn)
+          console.log("loggedIn", sessionStorage)
       })
 
       return (
