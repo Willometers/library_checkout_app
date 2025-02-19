@@ -1,10 +1,10 @@
 import React from "react";
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import { useState } from 'react'
 // interfaces with sessions#create
 
 function Login() {
-    const history = useHistory()
+    const history = useNavigate()
     const [username, setUsername] = useState("");
 
     function handleSubmit(e) {
@@ -21,11 +21,11 @@ function Login() {
             .then((user) => { 
                 if (!user.error) {
                     sessionStorage.setItem("loggedIn", true)
-                    history.push('/books')
+                    history('/books')
                     console.log("user",user.id)
                     }
                 else {
-                    history.push('/signup')
+                    history('/signup')
                     }
                 })
             }

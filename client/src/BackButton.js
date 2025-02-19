@@ -1,11 +1,11 @@
 import React from "react"
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const BackButton = () => {
-    const history = useHistory()
+    const history = useNavigate()
     const handleHome = (e) => {
         e.preventDefault()
-        history.push(`/books`)
+        history(`/books`)
     }
 
     return (

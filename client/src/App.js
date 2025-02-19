@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BooksList from './BooksList';
 import Login from './Login';
 import BookProfile from './BookProfile';
@@ -13,12 +13,12 @@ function App() {
     <Router>
      <div>
       <h1>Library</h1>
-      <Switch>
-        <Route exact path="/signup"><SignUp/></Route>
-        <Route exact path="/login"><Login/></Route>
-        <Route exact path="/books"><BooksList/></Route>
-        <Route exact path="/books/:id"><BookProfile/></Route>
-      </Switch>
+      <Routes>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/books" element={<BooksList />} />
+          <Route path="/books/:id" element={<BookProfile />} />
+      </Routes>
       <NavBar/>
       </div>
     </Router>

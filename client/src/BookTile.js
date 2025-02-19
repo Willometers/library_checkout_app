@@ -1,11 +1,11 @@
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const BookTile = ( { book } ) => {
-    const history = useHistory()
+    const history = useNavigate()
 
     function handleSubmit(e) {
         e.preventDefault()
-        history.push(`/books/${book.id}`)
+        history(`/books/${book.id}`)
     }
 
     return (

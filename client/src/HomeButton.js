@@ -1,8 +1,8 @@
 import React from "react"
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const HomeButton = () => {
-    const history = useHistory()
+    const history = useNavigate()
     const handleHome = (e) => {
         // e.preventDefault()
         fetch(`http://localhost:3000/logout`, {
@@ -10,7 +10,7 @@ const HomeButton = () => {
         })
         .then(() => {
             sessionStorage.clear()
-            history.push(``)
+            history(``)
             console.log('session deleted')
         })
     }

@@ -1,9 +1,9 @@
 import React from "react";
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import { useState } from 'react'
 
 function SignUp() {
-    const history = useHistory()
+    const history = useNavigate()
     const [username, setUsername] = useState("");
 
     function handleSubmit(e) {
@@ -18,7 +18,7 @@ function SignUp() {
             },
             body: JSON.stringify({ username }),
           })
-          .then(history.push('/books'))
+          .then(history('/books'))
     }
 
     return (
