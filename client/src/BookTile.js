@@ -5,6 +5,7 @@ const BookTile = ( { book } ) => {
 
     function handleSubmit(e) {
         e.preventDefault()
+        console.log("info clicked")
         history(`/books/${book.id}`)
     }
 

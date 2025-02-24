@@ -4,7 +4,7 @@ import BooksList from './BooksList';
 import Login from './Login';
 import BookProfile from './BookProfile';
 import SignUp from './SignUp';
-import NavBar from './NavBar';
+// import NavBar from './NavBar';
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
           <Route path="/books" element={<BooksList />} />
           <Route path="/books/:id" element={<BookProfile />} />
       </Routes>
-      <NavBar/>
+      {/* <NavBar/> */}
       </div>
     </Router>
 
