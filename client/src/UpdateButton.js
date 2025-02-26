@@ -10,10 +10,11 @@ const CheckoutButton = () => {
     const handleSubmit = (e) => {
 
         e.preventDefault()
-    
+    // place holder, make an eventual POST function to add
             fetch(`http://localhost:3000/books/${id}/fanfictionify`)
             .then(res => res.json())
             .then(setBook) 
+            .then(console.log("update"))
     }
 
     return (

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :sessions
   delete "/logout", to: "sessions#destroy" 
   post '/login', to: 'sessions#create'
-  post "signup", to: "users#create"
+  post "/signup", to: "users#create"
   delete "/checkouts", to: "checkouts#destroy"
   get "/me", to: "users#show" 
   get "/books/:id/fanfictionify", to: "books#fanfictionify"
